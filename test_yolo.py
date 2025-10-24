@@ -1,3 +1,7 @@
+# test_yolo.py
+# Simple script to test YOLOv8 installation and basic object detection (inference).
+# Uses a pre-trained model on a sample image.
+
 from ultralytics import YOLO
 import os
 

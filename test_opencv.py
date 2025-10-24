@@ -1,10 +1,11 @@
+# test_opencv.py
+# Simple script to test OpenCV installation.
+# Loads and displays a sample image.
+
 import cv2
 import os
 
-# --- Configuration ---
-# Define the path to your sample image
 image_path = 'sample_image.jpg'
-# --- End Configuration ---
 
 # --- Load and Display Image ---
 print(f"Loading image: {image_path}")
