@@ -25,3 +25,8 @@ runs/
 *.mp4
 *.mov
 *.avi
+
+# Ignore generated images and samples
+*.png
+*.jpg
+*.jpeg
