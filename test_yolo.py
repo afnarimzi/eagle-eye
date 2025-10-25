@@ -1,6 +1,6 @@
 # test_yolo.py
 # Simple script to test YOLOv8 installation and basic object detection (inference).
-# Uses a pre-trained model on a sample image.
+# Uses a pre-trained model on a sample vidio.
 
 from ultralytics import YOLO
 import os
@@ -9,23 +9,23 @@ import os
 # Load a pre-trained YOLOv8n model 
 model = YOLO('yolov8n.pt')
 
-# Define the path to your sample image
-image_path = 'sample_image.jpg'
+# Define the path to your sample vidio
+video_path = 'vidio2.mp4'
 # --- End Configuration ---
 
-print(f"Running detection on: {image_path}")
+print(f"Running detection on: {video_path}")
 
 # Check if the image file exists
-if not os.path.exists(image_path):
-    print(f"Error: Image file not found at {image_path}")
-    print("Please download an image, save it as 'sample_image.jpg' in the project folder, and try again.")
+if not os.path.exists(video_path):
+    print(f"Error:vidio file not found at {video_path}")
+    print("Please download an vidio, save it as 'vidio.mp4' in the project folder, and try again.")
 else:
     # Run inference on the source
     # show=True will display the results in a window (if possible)
     # save=True will save the results to a 'runs/detect/predict' folder
     # conf=0.25 sets a confidence threshold (only show detections above 25% confidence)
     try:
-        results = model.predict(source=image_path, show=True, save=True, conf=0.25, project='.', name='predict')
+        results = model.predict(source=video_path, show=True, save=True, conf=0.25, project='.', name='predict')
 
         print("\nDetection complete.")
         print("Results saved in the 'runs/detect/predict' folder.")
@@ -44,7 +44,7 @@ else:
 
     except Exception as e:
         print(f"\nAn error occurred during detection: {e}")
-        print("This might happen if your environment doesn't support displaying images directly.")
-        print("Check the 'runs/detect/predict' folder for the saved image result.")
+        print("This might happen if your environment doesn't support displaying vidio directly.")
+        print("Check the 'runs/detect/predict' folder for the saved vidio result.")
 
 # --- End Run Detection ---

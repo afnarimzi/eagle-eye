@@ -18,3 +18,10 @@ Thumbs.db
 runs/
 *.pt
 *.whl
+
+
+
+# Media files
+*.mp4
+*.mov
+*.avi
