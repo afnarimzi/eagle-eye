@@ -2,32 +2,32 @@ import numpy as np
 from spatialmath import SE3 
 
 # --- Define a Point ---
-# Represent a point in 3D space (e.g., bird's initial position)
-# Using a NumPy array: [X, Y, Z] in meters
-# Let's say the bird is 100m ahead (X), 20m right (Y), 10m up (Z)
+# Bird is 100m ahead (X), 20m right (Y), 10m up (Z)
 bird_position_initial = np.array([100, 20, 10])
 print(f"Initial Bird Position (X, Y, Z): {bird_position_initial}")
 
-# --- Define a Transformation  ---
-# Let's say we want to represent the bird moving 5 meters forward (positive X)
-# We create an SE3 object representing this translation
-# SE3.Tx(d) creates a translation along the X-axis by distance d
-move_forward_transform = SE3.Tx(5)
-print("\nTransformation Object (Moving 5m in X):")
-print(move_forward_transform)
-# You can still access the 4x4 matrix if needed:
-# print("\nTransformation Matrix:")
-# print(move_forward_transform.A)
+# --- Define a Rotation Transformation ---
+# Let's rotate the bird's position 90 degrees counter-clockwise
+# around the Z-axis (upwards axis).
+# SE3.Rz(angle_in_radians) creates a rotation around Z.
+# We need numpy for pi: np.pi / 2 is 90 degrees.
+rotation_transform = SE3.Rz(np.pi / 2)
+print("\nRotation Transformation Object (90 deg around Z):")
+print(rotation_transform)
 
+# --- Apply the Rotation ---
+# Apply the rotation to the initial position
+# SE3 objects use * for transformation
+bird_position_rotated = rotation_transform * bird_position_initial
+print(f"\nRotated Bird Position (X, Y, Z): {bird_position_rotated}")
 
-# --- Apply the Transformation ---
-# The SE3 object can directly transform a 3D NumPy array vector
-bird_position_new = move_forward_transform * bird_position_initial
+# --- Combine Rotation and Translation ---
+# Let's define a combined pose: rotate 90 deg around Z, then move 5m along the NEW X-axis
+# Transformations are applied right-to-left: First rotate (Rz), then translate (Tx)
+combined_transform = SE3.Tx(5) * SE3.Rz(np.pi / 2)
+print("\nCombined Transformation Object (Rotate then Translate):")
+print(combined_transform)
 
-print(f"\nNew Bird Position (X, Y, Z): {bird_position_new}")
-
-# --- Direct Calculation ---
-# For simple translation, you can just add vectors directly
-move_vector = np.array([5, 0, 0])
-bird_position_new_simple = bird_position_initial + move_vector
-print(f"\nNew Bird Position (Simple Addition): {bird_position_new_simple}")
+# Apply the combined transform to the original point
+bird_position_final = combined_transform * bird_position_initial
+print(f"\nFinal Bird Position after Rotate & Translate (X, Y, Z): {bird_position_final}")
