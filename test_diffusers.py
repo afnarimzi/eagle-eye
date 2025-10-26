@@ -7,10 +7,9 @@ import os
 model_id = "CompVis/stable-diffusion-v1-4" 
 
 # Define the prompt 
-prompt = "Cockpit view of a flock of small birds flying towards the plane on a cloudy day,Photo focus: MANY small birds flying towards the camera, cloudy sky background, slight motion blur"
-# Define the folder and filename for saving
+prompt = "Vast clear blue sky, midday sun, photorealistic, single Black Kite soaring very high, seen from below"
 output_folder = "generated_images" 
-base_filename = "generated_bird_image_prompt4.png" 
+base_filename = "generated_kite_cockpit2.png" 
 output_filepath = os.path.join(output_folder, base_filename) 
 
 os.makedirs(output_folder, exist_ok=True) 
