@@ -1,18 +1,19 @@
 import torch
 from diffusers import StableDiffusionPipeline
-import os
+import os 
 
 # --- Configuration ---
 # Use a smaller, faster Stable Diffusion model for this test
-# model_id = "runwayml/stable-diffusion-v1-5" # Larger model
-model_id = "CompVis/stable-diffusion-v1-4" # Slightly smaller/older
-# Or even smaller/faster ones if needed (might require searching Hugging Face)
+model_id = "CompVis/stable-diffusion-v1-4" 
 
-# Define the prompt (what image you want to create)
-prompt = "A realistic photo of a single goose flying high in a clear blue sky"
+# Define the prompt 
+prompt = "Cockpit view of a flock of small birds flying towards the plane on a cloudy day,Photo focus: MANY small birds flying towards the camera, cloudy sky background, slight motion blur"
+# Define the folder and filename for saving
+output_folder = "generated_images" 
+base_filename = "generated_bird_image_prompt4.png" 
+output_filepath = os.path.join(output_folder, base_filename) 
 
-# Define where to save the image
-output_filename = "generated_bird_image.png"
+os.makedirs(output_folder, exist_ok=True) 
 # --- End Configuration ---
 
 # --- Generate Image ---
@@ -25,24 +26,20 @@ try:
     print(f"Using device: {device}")
 
     # Load the pipeline (the pre-trained model and associated code)
-    # If using CPU, specify torch_dtype=torch.float32 to avoid potential errors
     if device == "cpu":
         pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float32)
     else:
-        # If you had a GPU, you might use float16 for speed/less memory
         pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
-        pipe = pipe.to(device) # Move the model to the GPU
+        pipe = pipe.to(device)
 
     print("Model loaded. Generating image...")
 
-    # Generate the image
-    # num_inference_steps controls quality vs speed (lower is faster, maybe less quality)
     image = pipe(prompt, num_inference_steps=30).images[0]
 
-    print(f"Image generated successfully. Saving to {output_filename}")
+    print(f"Image generated successfully. Saving to {output_filepath}") 
 
     # Save the image
-    image.save(output_filename)
+    image.save(output_filepath) 
 
     print("Image saved.")
 
@@ -51,4 +48,3 @@ except Exception as e:
     print("Model loading or image generation failed.")
     print("This could be due to memory limitations (especially on CPU) or network issues.")
 
-# --- End Generate Image ---
