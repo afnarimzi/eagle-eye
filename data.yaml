@@ -1,0 +1,9 @@
+# Train/val datasets (paths should be relative to your main project folder)
+train: dataset/images/train
+val: dataset/images/val
+
+# Number of classes
+nc: 1
+
+# Class names
+names: ['bird']
