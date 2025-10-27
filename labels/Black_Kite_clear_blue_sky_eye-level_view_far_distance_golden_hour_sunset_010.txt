@@ -1,0 +1,26 @@
+<annotation>
+	<folder>eagle_eye_dataset</folder>
+	<filename>Black_Kite_clear_blue_sky_eye-level_view_far_distance_golden_hour_sunset_010.png</filename>
+	<path>/home/fawaz/github/bird-strike/eagle_eye_dataset/Black_Kite_clear_blue_sky_eye-level_view_far_distance_golden_hour_sunset_010.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>bird</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>42</xmin>
+			<ymin>160</ymin>
+			<xmax>469</xmax>
+			<ymax>379</ymax>
+		</bndbox>
+	</object>
+</annotation>
