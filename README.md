@@ -1,14 +1,15 @@
-##  Project: Eagle Eye - Avian Hazard Avoidance System (A-HAMS)
+##   Eagle Eye - Avian Hazard Avoidance System (A-HAMS)
+
 
 This project develops a proof-of-concept for an onboard, real-time computer vision system designed to detect birds, track their 3D movement, and predict potential mid-air collisions with aircraft.
 
 
-##  Project Overview
+###  Project Overview
 
 The primary objective was to create a functional prototype that bridges the gap between conventional 2D object detection and safety-critical 3D prediction. The pipeline demonstrates how to use modern AI to provide pilots with crucial Time-to-Impact (TTI) warnings.
 
 
-## Core Technology & Methodology
+### Core Technology & Methodology
 
 The solution integrates four essential components:
 
@@ -21,7 +22,7 @@ Synthetic Data Generation: We solved the critical data scarcity problem by lever
 Collision Prediction: The system performs path projection using the calculated 3D velocity vectors of the bird and the simulated aircraft to determine if their paths will intersect within a set safety margin.
 
 
-## Project Deliverables & Results
+### Project Deliverables & Results
 
 1. Model Training and Performance
 Custom Model Trained: A custom best.pt YOLOv8 model was successfully fine-tuned on the GPU using the synthetic dataset.
