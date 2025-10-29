@@ -1,12 +1,8 @@
-##   Eagle Eye - Avian Hazard Avoidance System (A-HAMS)
+##   Kestrel 
 
 
-This project develops a proof-of-concept for an onboard, real-time computer vision system designed to detect birds, track their 3D movement, and predict potential mid-air collisions with aircraft.
+This project develops a proof-of-concept for an onboard, real-time computer vision system designed to detect birds, track their 3D movement, and predict potential mid-air collisions with UAVs and and validate UAV missions using GPS waypoints and coordinate transformations across WGS84, ECEF, NED, and FRD frames
 
-
-###  Project Overview
-
-The primary objective was to create a functional prototype that bridges the gap between conventional 2D object detection and safety-critical 3D prediction. The pipeline demonstrates how to use modern AI to provide pilots with crucial Time-to-Impact (TTI) warnings.
 
 
 ### Core Technology & Methodology
