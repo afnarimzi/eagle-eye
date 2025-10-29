@@ -27,7 +27,7 @@ Challenge: Determining if the calculated 3D path of the bird intersects the airc
 Solution: Implemented a path projection algorithm that uses the calculated bird velocity and the aircraft's simulated flight vector to compute the predicted Closest Point of Approach (CPA) and trigger a COLLISION ALERT if the distance falls below the safety threshold.
 
 
-####Project Deliverables & Results
+#### Project Deliverables & Results
 
 1. Model Performance
    
@@ -44,11 +44,3 @@ System Validation: The pipeline consistently detects the simulated bird, calcula
 Actionable Metric: The system outputs the exact Time-to-Impact (TTI), providing the essential warning metric for a pilot or autonomous system.
 
 
-#### Repository contents
-
-File/Folder,Description
-final_pipeline.py,"The complete, integrated script. Contains all YOLO loading, triangulation, velocity, and collision prediction logic."
-weights/best.pt,Final Model Output: Custom-trained YOLOv8 model weights (must be placed locally for execution).
-labels/,Contains the 324 essential .txt bounding box label files (the manual ground truth).
-data.yaml,YOLO configuration file defining the dataset structure and the single class (bird).
-requirements.txt,"Lists all necessary Python dependencies (PyTorch, Ultralytics, spatialmath, etc.)."
