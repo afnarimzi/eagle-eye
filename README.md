@@ -4,7 +4,7 @@
 This project develops a proof-of-concept for an onboard, real-time computer vision system designed to detect birds, track their 3D movement, and predict potential mid-air collisions with UAVs and validate UAV missions using GPS waypoints and coordinate transformations across WGS84, ECEF, NED, and FRD frames
 
 
-### Methodology and Innovation
+###  Methodology and Innovation
 
 
 The system is engineered in three integrated stages, solving key technical challenges:
@@ -27,20 +27,20 @@ Challenge: Determining if the calculated 3D path of the bird intersects the airc
 Solution: Implemented a path projection algorithm that uses the calculated bird velocity and the aircraft's simulated flight vector to compute the predicted Closest Point of Approach (CPA) and trigger a COLLISION ALERT if the distance falls below the safety threshold.
 
 
-#### Project Deliverables & Results
+###  Project Deliverables & Results
 
-1. Model Performance
+#### 1. Model Performance
    
 Custom Model Trained: A custom best.pt YOLOv8 model was successfully fine-tuned on the GPU using the synthetic dataset.
 
 Accuracy: The model achieved high accuracy metrics (e.g., mAP50 > 0.99) on the validation set, validating the quality of the synthetic data.
 
-2. Final Pipeline Output
+##### 2. Final Pipeline Output
    
 The final_pipeline.py script successfully ran the end-to-end simulation:
 
 System Validation: The pipeline consistently detects the simulated bird, calculates its path, and triggers a verifiable COLLISION ALERT when the prediction logic dictates a threat below the 100-meter safety threshold.
 
-Actionable Metric: The system outputs the exact Time-to-Impact (TTI), providing the essential warning metric for a pilot or autonomous system.
+Actionable Metric: The system outputs the exact Time-to-Impact (TTI), providing the essential warning metric for a  autonomous system.
 
 
